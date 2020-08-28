@@ -4,7 +4,7 @@
 <div>
     {{#if this.emailValidation.valid}}
     {{else}}
-    <div class="errorMessage">{{this.emailValidation.errorMessage}}</div>
+        <div class="errorMessage">{{this.emailValidation.errorMessage}}</div>
     {{/if}}
     Email: <Input class="text-input" @value={{this.email}}/>
     <button {{on "click" this.findClientByEmail}}>Find By Email</button>
@@ -18,6 +18,10 @@
     <button {{on "click" this.findClientByPhone}}>Find By Phone</button>
 </div>
 
-{{#each this.clients as |client|}}
-    <PhorestClient @model={{client}}/>
-{{/each}}
+{{#if this.noResultFound}}
+    <div>No results found</div>
+{{else}}
+    {{#each this.clients as |client|}}
+        <PhorestClient @model={{client}}/>
+    {{/each}}
+{{/if}}

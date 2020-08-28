@@ -11,38 +11,36 @@ export default class Client extends Controller.extend({
 }) {
   // normal class body definition here
   @tracked
-  emailValidation: ValidField = {
-    valid: true
-  };
+  noResultFound = false;
   @tracked
-  phoneValidation: ValidField = {
-    valid: true
-  };
+  emailValidation: ValidField = { valid: true };
+  @tracked
+  phoneValidation: ValidField = { valid: true };
   @tracked
   email: String = "";
   @tracked
   phone: String = "";
   @tracked
-  clients: Array<ClientData> | null= null;
+  clients: Array<ClientData> | null = null;
   @service clientLoader!: ClientLoader;
   @service fieldValidator!: FieldValidator;
 
   @action
   findClientByEmail() {
-      this.resetValidation();
-      this.emailValidation = this.fieldValidator.validateEmail(this.email);
-      if (this.emailValidation.valid) {
-        this.loadClientDataByEmail();
-      }
+    this.resetValidation();
+    this.emailValidation = this.fieldValidator.validateEmail(this.email);
+    if (this.emailValidation.valid) {
+      this.loadClientDataByEmail();
+    }
   }
 
   @action
   findClientByPhone() {
-      this.resetValidation();
-      this.phoneValidation = this.fieldValidator.validatePhoneNumber(this.phone);
-      if (this.phoneValidation.valid) {
-        this.loadClientDataByPhoneNumber();
-      }
+    this.resetValidation();
+    this.phoneValidation = this.fieldValidator.validatePhoneNumber(this.phone);
+    if (this.phoneValidation.valid) {
+      this.loadClientDataByPhoneNumber();
+    }
   }
 
   resetValidation() {
@@ -56,19 +54,25 @@ export default class Client extends Controller.extend({
   }
 
   loadClientDataByPhoneNumber() {
-      this.clientLoader!.loadClientDataByPhoneNumber(this.phone).then( data => {
-          this.handleClientsLoad(data);
-      });
+    this.clientLoader!.loadClientDataByPhoneNumber(this.phone).then(data => {
+      this.handleClientsLoad(data);
+    });
   }
 
   loadClientDataByEmail() {
-      this.clientLoader!.loadClientDataByEmail(this.email).then( data => {
-          this.handleClientsLoad(data);        
-      });
+    this.clientLoader!.loadClientDataByEmail(this.email).then(data => {
+      this.handleClientsLoad(data);
+    });
   }
 
   handleClientsLoad(data: any) {
-      this.clients = data._embedded.clients;
+    if (data.page.size == 0) {
+      this.noResultFound = true;
+      return;
+    } else {
+      this.noResultFound = false;
+    }
+    this.clients = data._embedded.clients;
   }
 }
 

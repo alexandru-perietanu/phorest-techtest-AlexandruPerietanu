@@ -12,9 +12,7 @@ interface ClientArgs {
 
 export default class PhorestClientComponent extends Component<ClientArgs> {
     @tracked
-    voucherAmountValidation: ValidField = {
-        valid: true
-    };
+    voucherAmountValidation: ValidField = { valid: true };
     @tracked
     voucher: VoucherData | null = null;
     @tracked

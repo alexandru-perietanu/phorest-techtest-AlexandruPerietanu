@@ -9,7 +9,7 @@
         <div>
             {{#if this.voucherAmountValidation.valid}}
             {{else}}
-            <div class="errorMessage">{{this.voucherAmountValidation.errorMessage}}</div>
+                <div class="errorMessage">{{this.voucherAmountValidation.errorMessage}}</div>
             {{/if}}
             Voucher amount: <Input class="text-input voucher-input" @value={{this.voucherValue}}/>
             <button {{on "click" this.loadVoucherForClient}}>Generate Voucher</button>

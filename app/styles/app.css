@@ -1,0 +1,50 @@
+.phorest-client {
+     display: flex;
+     width: 500px;
+     height: 130px;
+     border-radius: 15px;
+     border: 2px solid #03254c;
+     background: #d0efff;
+     padding: 15px;
+     margin: 10px 0;
+}
+
+.phorest-client__client-data {
+    width: 320px;
+}
+
+.phorest-client__client-data span {
+    font-weight: bold;
+}
+
+.phorest-client__client-voucher{
+    flex: 1;
+}
+.phorest-client__client-voucher span {
+    font-weight: bold;
+}
+
+.voucher-data {
+    font-weight: bold;
+    font-size: 16px;
+    margin-bottom: 4px;
+}
+
+.remain-balance {
+    color: green;
+}
+
+.text-input {
+    margin: 5px 0;
+    width: 150px;
+}
+
+.voucher-input { 
+    width: 50px;
+}
+
+.errorMessage {
+    color: #990000;
+    background: #EDDEA4;
+    border: 1px solid #F7A072;
+}

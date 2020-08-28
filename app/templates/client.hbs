@@ -1,0 +1,23 @@
+<h1>client route</h1>
+<div>Example email: 0.111085034143845@example.com  0.01@example.com</div>
+<div>Example phone number: 11085034143845</div>
+<div>
+    {{#if this.emailValidation.valid}}
+    {{else}}
+    <div class="errorMessage">{{this.emailValidation.errorMessage}}</div>
+    {{/if}}
+    Email: <Input class="text-input" @value={{this.email}}/>
+    <button {{on "click" this.findClientByEmail}}>Find By Email</button>
+</div>
+<div>
+    {{#if this.phoneValidation.valid}}
+    {{else}}
+        <div class="errorMessage">{{this.phoneValidation.errorMessage}}</div>
+    {{/if}}
+    Phone: <Input class="text-input" @value={{this.phone}}/>
+    <button {{on "click" this.findClientByPhone}}>Find By Phone</button>
+</div>
+
+{{#each this.clients as |client|}}
+    <PhorestClient @model={{client}}/>
+{{/each}}

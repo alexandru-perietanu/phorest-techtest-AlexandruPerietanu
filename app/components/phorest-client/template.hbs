@@ -1,0 +1,30 @@
+<div class="phorest-client">
+    <div class="phorest-client__client-data">
+        <div>Client Id: <span>{{@model.clientId}}</span></div>
+        <div>First Name: <span>{{@model.firstName}}</span></div>
+        <div>Last Name: <span>{{@model.lastName}}</span></div>
+        <div>Phone: <span>{{@model.mobile}}</span></div>
+        <div>Email: <span>{{@model.email}}</span></div>
+
+        <div>
+            {{#if this.voucherAmountValidation.valid}}
+            {{else}}
+            <div class="errorMessage">{{this.voucherAmountValidation.errorMessage}}</div>
+            {{/if}}
+            Voucher amount: <Input class="text-input voucher-input" @value={{this.voucherValue}}/>
+            <button {{on "click" this.loadVoucherForClient}}>Generate Voucher</button>
+        </div>
+    </div>
+
+    <div class="phorest-client__client-voucher">
+        {{#if this.voucher}}
+            <div class="voucher-data">Voucher data</div>
+            <div>Serial Number: <span>{{this.voucher.serialNumber}}</span></div>
+            <div>Issue date: <span>{{this.issueDate}}</span></div>
+            <div>Expiry date: <span>{{this.expiryDate}}</span></div>
+            <div>Original balance: <span>{{this.voucher.originalBalance}}</span></div>
+            <div>Remaining balance: <span class="remain-balance">{{this.voucher.remainingBalance}}</span></div>
+        {{/if}}
+    </div>
+</div>
+

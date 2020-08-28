@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # phorest-test
 
 This README outlines the details of collaborating on this Ember application.
@@ -54,8 +53,5 @@ Specify what it takes to deploy your app.
 * [ember.js](https://emberjs.com/)
 * [ember-cli](https://ember-cli.com/)
 * Development Browser Extensions
-  * [ember inspector for chrome](https://chrome.google.com/webstore/detail/ember-inspector/bmdblncegkenkacieihfhpjfppoconhi)
-  * [ember inspector for firefox](https://addons.mozilla.org/en-US/firefox/addon/ember-inspector/)
-=======
-# phorest-techtest-AlexandruPerietanu
->>>>>>> 5e3273cbcb81e5bc086c80887e5abac10f103d9c
+* [ember inspector for chrome](https://chrome.google.com/webstore/detail/ember-inspector/bmdblncegkenkacieihfhpjfppoconhi)
+* [ember inspector for firefox](https://addons.mozilla.org/en-US/firefox/addon/ember-inspector/)

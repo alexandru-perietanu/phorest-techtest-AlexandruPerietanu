@@ -7,6 +7,7 @@ export default class ClientLoader extends Service.extend({
   // normal class body definition here
   loadClientDataByEmail(email: String) {
     let url:string = `http://api-gateway-dev.phorest.com/third-party-api-server/api/business/eTC3QY5W3p_HmGHezKfxJw/client?email=${email}&page=0&size=150`;
+    //let url:string = `http://api-gateway-dev.phorest.com/third-party-api-server/api/business/`;//eTC3QY5W3p_HmGHezKfxJw"/client?email=${email}&page=0&size=150`;
     return this.loadClientData(url);
   }
 
@@ -24,7 +25,7 @@ export default class ClientLoader extends Service.extend({
         headers: {
           "accept": "*/*",
           "Content-Type": "application/json",
-          "authorization": "Basic Z2xvYmFsL2Nsb3VkQGFwaWV4YW1wbGVzLmNvbTpWTWxSby9laCtYZDhNfmw="
+          "Authorization": `Basic ${btoa("global/cloud@apiexamples.com:VMlRo/eh+Xd8M~l")}`
         },
         redirect: "follow", 
         referrerPolicy: "no-referrer"

@@ -22,7 +22,7 @@ export default class VoucherLoader extends Service.extend({
       headers: {
         "accept": "*/*",
         "Content-Type": "application/json",
-        "authorization": "Basic Z2xvYmFsL2Nsb3VkQGFwaWV4YW1wbGVzLmNvbTpWTWxSby9laCtYZDhNfmw="
+        "Authorization": `Basic ${btoa("global/cloud@apiexamples.com:VMlRo/eh+Xd8M~l")}`
       },
       redirect: "follow",
       referrerPolicy: "no-referrer",

@@ -1,4 +1,5 @@
 import Service from '@ember/service';
+import { baseURL, user } from 'phorest-test/util/constants';
 
 export default class VoucherLoader extends Service.extend({
   // anything which *must* be merged to prototype here
@@ -13,7 +14,7 @@ export default class VoucherLoader extends Service.extend({
       issueDate: "2020-08-27T21:37:18.499Z",
       originalBalance: voucherValue,
     };
-    let url: string = "http://api-gateway-dev.phorest.com/third-party-api-server/api/business/eTC3QY5W3p_HmGHezKfxJw/voucher";
+    let url: string = baseURL + "eTC3QY5W3p_HmGHezKfxJw/voucher";
     const response = await fetch(url, {
       method: "POST",
       mode: "cors",
@@ -22,7 +23,7 @@ export default class VoucherLoader extends Service.extend({
       headers: {
         "accept": "*/*",
         "Content-Type": "application/json",
-        "Authorization": `Basic ${btoa("global/cloud@apiexamples.com:VMlRo/eh+Xd8M~l")}`
+        "Authorization": `Basic ${btoa(user.username + ":" + user.password)}`
       },
       redirect: "follow",
       referrerPolicy: "no-referrer",
